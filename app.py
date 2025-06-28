@@ -21,7 +21,7 @@ def chat():
     elif "drunk" in user_input or "alcohol" in user_input:
         reply = "Driving under the influence can lead to license revocation and criminal charges."
     else:
-        reply = "I'm GovBot. I can help with traffic rules, violations, and license requirements."
+        reply = "I'm a class Bot. I can help with traffic rules, violations, and license requirements."
 
     return jsonify({"reply": reply})
 
