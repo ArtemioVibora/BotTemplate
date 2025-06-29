@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Bot Template</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>hello</h1>
-    <div class="Chatbox">
+    <div id="chat-box">
         <div id="messages"></div>
         <!-- Will replace getElementById to prevent XSS
         But for now this would do. TO DO once presented in class. Replace getElementByID-->
@@ -19,14 +19,14 @@
     <script>
         async function sendMessage()
         {
-            const input = document.getElementByID("userInput");
+            const input = document.getElementById("userInput");
             const text = input.value.trim();
             if (!text) return;
 
             appendMessage(text, "user");
             input.value = "";
 
-            const res = await fetch("/chat:", {
+            const res = await fetch("/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: text })
@@ -42,7 +42,6 @@
             div.className = sender;
             div.textContent = text;
             document.getElementById("messages").appendChild(div);
-
         }
     </script>
 </body>
